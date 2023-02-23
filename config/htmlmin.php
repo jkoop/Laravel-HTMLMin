@@ -29,6 +29,10 @@ return [
 
     'blade' => false,
 
+    'middleware' => [
+        'enable' => env('HTMLMIN_MIDDLEWARE_ENABLE', true), // middleware will never run in `local`
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Force Blade Optimizations

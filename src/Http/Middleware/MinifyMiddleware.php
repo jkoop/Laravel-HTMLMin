@@ -54,7 +54,7 @@ class MinifyMiddleware
     {
         $response = $next($request);
 
-        if ($this->isAResponseObject($response) && $this->isAnHtmlResponse($response)) {
+        if (config('app.env') != 'local' && config('htmlmin.middleware.enable') && $this->isAResponseObject($response) && $this->isAnHtmlResponse($response)) {
             $output = $response->getContent();
             $minified = $this->html->render($output);
             $response->setContent($minified);

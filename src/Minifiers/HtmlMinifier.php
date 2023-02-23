@@ -68,7 +68,7 @@ class HtmlMinifier implements MinifierInterface
             'jsCleanComments' => true,
         ];
 
-        return Minify_HTML::minify($value, $options);
+        return str_replace("\n", " ", Minify_HTML::minify($value, $options));
     }
 
     /**
